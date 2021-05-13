@@ -1,6 +1,6 @@
 package model.data_structures;
 
-public class ArregloDinamico <T extends Comparable<T>> implements ILista<T> 
+public class ArregloDinamico <T extends Comparable<T>> implements ILista<T>
 {
 		/**
 		 * Capacidad maxima del arreglo
