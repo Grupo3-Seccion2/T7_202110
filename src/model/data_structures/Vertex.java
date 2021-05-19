@@ -11,6 +11,7 @@ public class Vertex <K extends  Comparable<K>,V extends Comparable<V>> implement
 
 	public Vertex(K id, V value)
 	{
+		arcos = new ArregloDinamico<>(10);
 		this.id = id;
 		this.value = value;
 		marked = false;
@@ -35,6 +36,7 @@ public class Vertex <K extends  Comparable<K>,V extends Comparable<V>> implement
 	public void addEdge(Edge<K, V> edge)
 	{
 		arcos.addLast(edge);
+		indegree++;
 	}
 
 
@@ -63,7 +65,7 @@ public class Vertex <K extends  Comparable<K>,V extends Comparable<V>> implement
 	@Override
 	public Edge<K, V> getEdge(K vertex) {
 		Edge<K,V> temp = null;
-		for (int i = 0; i < arcos.size()  ; i++)
+		for (int i = 1; i < arcos.size()  ; i++)
 		{
 			if(arcos.getElement(i).getDestination().equals(vertex))
 			{
@@ -82,7 +84,7 @@ public class Vertex <K extends  Comparable<K>,V extends Comparable<V>> implement
 		{
 			lista.addLast(arcos.getElement(i).getDestination());
 		}
-		return null;
+		return lista;
 	}
 
 	@Override
@@ -98,7 +100,7 @@ public class Vertex <K extends  Comparable<K>,V extends Comparable<V>> implement
 
 	public void dfs(Edge<K,V> edgeTo)
 	{
-		mark(edgeTo);
+		this.marked = true;
 		for(int i = 0; i <= arcos.size(); i++)
 		{
 			Vertex<K,V> destino = arcos.getElement(i).getDestination();

@@ -17,7 +17,8 @@ public class View
 		{
 			
 			System.out.println("\n1. Cargar los datos");
-			System.out.println("2. Exit");
+			System.out.println("2. Puntos Adjacentes");
+			System.out.println("3. Exit");
 			System.out.println("Dar el numero de opcion a resolver, luego oprimir tecla Return: (e.g., 1):");
 		}
 		
